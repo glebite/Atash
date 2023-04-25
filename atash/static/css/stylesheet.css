@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: grey;
 }
 
 .file-upload input[type="file"] {
@@ -7,7 +7,7 @@ body {
 }
 
 .file-upload #custom-button {
-  background-color: #007bff;
+  background-color: #237bff;
   color: #fff;
   padding: 10px;
   cursor: pointer;
