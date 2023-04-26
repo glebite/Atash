@@ -2,7 +2,7 @@ body {
     background-color: grey;
 }
 
-.file-upload input[type="file"] {
+.file-upload input[type="file-input"] {
   display: none;
 }
 
