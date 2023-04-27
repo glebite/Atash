@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<html>
+  <table>
+    {% for item in items %}
+    <tr>
+      <td class="c1">{{item.date}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</html>
+
+{% endblock %}

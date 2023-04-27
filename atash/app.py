@@ -27,5 +27,11 @@ def upload_file():
         return 'file uploaded successfully'
 
 
+@app.route('/table', methods=['GET'])
+def table():
+    stuff = {'date': '2012-02-16'}
+    return render_template('table.html', items=stuff)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
