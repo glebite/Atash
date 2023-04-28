@@ -29,7 +29,7 @@ def upload_file():
 
 @app.route('/table', methods=['GET'])
 def table():
-    stuff = {'date': '2012-02-16'}
+    stuff = {'date': '2012-02-16', 'thing': '2012-03-13'}
     return render_template('table.html', items=stuff)
 
 
