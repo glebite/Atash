@@ -33,5 +33,19 @@ def table():
     return render_template('table.html', items=stuff)
 
 
+@app.route('/process', methods=['GET', 'POST'])
+def process():
+    """process - operate on a .cap file
+
+    Accepts a b64 encoded .cap file, saves it, and 
+    initiates processing on it.
+
+    A get queries the process engine as to whether or 
+    not the processing is still active or failed or succeeded
+    at finding a solution.
+    """
+    pass
+
+
 if __name__ == "__main__":
     app.run(debug=True)
