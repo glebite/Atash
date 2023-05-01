@@ -37,10 +37,10 @@ def table():
 def process():
     """process - operate on a .cap file
 
-    Accepts a b64 encoded .cap file, saves it, and 
+    Accepts a b64 encoded .cap file, saves it, and
     initiates processing on it.
 
-    A get queries the process engine as to whether or 
+    A get queries the process engine as to whether or
     not the processing is still active or failed or succeeded
     at finding a solution.
     """
