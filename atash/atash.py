@@ -3,12 +3,21 @@
 Subclassing Flask to Atash will allow for the retention
 of state, etc...
 """
-import flask
+# import flask
+from flask import Flask, request
 from functools import wraps
 from collections import defaultdict
 
 
 def stats_wrapper(method):
+    """stats_wrapper - cool things
+
+    Parameters:
+    method (function): - method to wrap
+
+    Returns:
+    _impl (function):
+    """
     @wraps(method)
     def _impl(self, *method_args, **method_kwargs):
         method_output = method(self, *method_args, **method_kwargs)
@@ -17,8 +26,8 @@ def stats_wrapper(method):
     return _impl
 
 
-class Atash(flask.Flask):
-    """
+class Atash(Flask):
+    """Atash - main class for the server
     """
     def __init__(self, app_name):
         """
@@ -31,7 +40,7 @@ class Atash(flask.Flask):
         """
         """
         self.route('/stats')(self.stats)
-        self.route('/caller')(self.caller)
+        self.route('/caller', methods=['POST', 'GET'])(self.caller)
 
     @stats_wrapper
     def stats(self):
@@ -43,6 +52,8 @@ class Atash(flask.Flask):
     def caller(self):
         """
         """
+        if request.method == 'POST':
+            print('posting...')
         return str(self.requests_counter)
 
     def build_stats(self):
