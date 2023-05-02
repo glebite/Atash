@@ -2,8 +2,20 @@
 
 Subclassing Flask to Atash will allow for the retention
 of state, etc...
+
+caller POST:
+    data comes in as a b64 packet containing a .pcap file
+    it will get added to a multiprocessing queue and attempts
+    at finding the password.
+
+caller GET:
+    get the status
+
+stats GET:
+    retrieve called stats from the system including calls,
+    pcap files in, success, failures, etc...
+
 """
-# import flask
 from flask import Flask, request
 from functools import wraps
 from collections import defaultdict
