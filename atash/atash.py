@@ -7,6 +7,7 @@ of state, etc...
 from flask import Flask, request
 from functools import wraps
 from collections import defaultdict
+import queue
 
 
 def stats_wrapper(method):
@@ -35,6 +36,7 @@ class Atash(Flask):
         super().__init__(app_name)
         self.build_stats()
         self.load_routes()
+        self.queue = queue.Queue()
 
     def load_routes(self):
         """
@@ -53,7 +55,11 @@ class Atash(Flask):
         """
         """
         if request.method == 'POST':
-            print('posting...')
+            print(f'posting... {request.form=}')
+        elif request.method == 'GET':
+            print('getting...')
+        else:
+            return f"{request.method} not supported", 405
         return str(self.requests_counter)
 
     def build_stats(self):
