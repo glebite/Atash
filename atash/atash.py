@@ -43,7 +43,7 @@ class Atash(Flask):
     """Atash - main class for the server
     """
     def __init__(self, app_name):
-        """
+        """__init__ - initializer
         """
         super().__init__(app_name)
         self.build_stats()
@@ -58,9 +58,9 @@ class Atash(Flask):
 
     @stats_wrapper
     def stats(self):
+        """stats - return stats of the system
         """
-        """
-        return "stats"
+        return str(self.requests_counter)
 
     @stats_wrapper
     def caller(self):
@@ -72,7 +72,7 @@ class Atash(Flask):
             print('getting...')
         else:
             return f"{request.method} not supported", 405
-        return str(self.requests_counter)
+        return "OK"
 
     def build_stats(self):
         """
