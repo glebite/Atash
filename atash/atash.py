@@ -59,12 +59,15 @@ class Atash(Flask):
     @stats_wrapper
     def stats(self):
         """stats - return stats of the system
+
+        Parameters:
+        n/a
         """
         return str(self.requests_counter)
 
     @stats_wrapper
     def caller(self):
-        """
+        """caller - method
         """
         if request.method == 'POST':
             print(f'posting... {request.form=}')
